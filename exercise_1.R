@@ -5,6 +5,7 @@
 #' 
 
 library(tidyverse)
+library(limma)
 
 target_file = read_delim(file = "./day3_2020/Simulation_targets.txt",
                          delim = " ")
@@ -29,33 +30,9 @@ PC_plot = PC_df %>%
                 color = Conditions, shape = RNAlibrary)) +
   geom_point(size = 4)
 
+plotMDS(as.matrix(gex),
+        labels = target_file$Conditions)
 
+plotMDS(as.matrix(gex),
+        labels = target_file$RNAlibrary)  
   
-  
-
-dim(target_file)
-table(target_file$Conditions)
-table(target_file$RNAlibrary)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
